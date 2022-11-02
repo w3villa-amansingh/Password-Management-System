@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>passwordManagementSystem</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body> 
+    <nav class="navbar  navbar-inverse" style="    padding: 10px 103px;">
+      <div class="container-fluid">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="padding: 15px 63px">PasswodManagementSystem</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-size: 19px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/dashboard">Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PasswordCategory<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/addNewCategory">Add new category</a></li>
+                <li><a href="/passwordCategory">view all category</a></li>
+                
+              </ul>
+            </li>
+           
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PasswordDetails<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/addNewPassword">Add new password</a></li>
+                <li><a href="/viewAllPassword">view all password</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left">
+        
+            
+            <a class="nav-link" href="/" > Logout <span class="sr-only">(current)</span></a>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login As:<% if(loginUser){ %> <%= loginUser %> <% } %></a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+                   <div class="container">
+                        <div class="row">
+                          <h2 class="text-center"> Password Management System</h2>
+                            <div id="loginbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="panel-title"> Login</div>
+                                         </div>  
+                                    <div class="panel-body" >
+                                        <form action="/addNewCategory" id="EmployeeForm" class="form-horizontal" method="post"  role="form">
+                                            
+                                            
+                                            <div class="form-group">
+                                              <%  if(errors !='') {%>
+                                                <p style="text-align:center;color:red;    text-align: center;
+                                                color: red;
+                                                padding-right: 1;
+                                                "><%= errors.passwordCategory.msg%></p>
+                                                <% }%>
+                      
+                                                <%  if(success !='') {%>
+                                                  <p style="text-align:center;color:green;    text-align: center;
+                                                  color: green;
+                                                  padding-right: 1;
+                                                  "><%= success%></p>
+                                                  <% }%>
+                                                <label for="username" class="col-md-3 control-label">AddCategoryName</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="passwordCategory" placeholder="Enteryour Password Category Name">
+                                                </div>
+                                            </div>
+                                              
+                                            
+                                            </div>  <div class="form-group">
+                                                <!-- Button -->                                        
+                                                <div class="col-md-offset-3 col-md-9">
+                                                <input type="submit" name="submit" value="Add Category" class="btn btn-primary">   
+                                                </div>
+                                            </div>
+                                            <p> <a href="/viewAllPassword" style="margin: 14px;">View All Category</a></p>
+                                            
+                                        </form>
+                                     </div>
+                                </div>
+        
+    
+  </body>
+</html>
